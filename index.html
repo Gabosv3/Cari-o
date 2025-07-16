@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tus días son los míos ❤️🔥</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f0ff;
+            color: #4a3c5a;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #e0d6eb;
+        }
+        h1 {
+            color: #7e57c2;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .mode-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .mode-btn {
+            background-color: #7e57c2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .mode-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .mode-btn.active {
+            background-color: #5e35b1;
+            box-shadow: 0 3px 10px rgba(94, 53, 177, 0.3);
+        }
+        .message-box {
+            background-color: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 5px solid #ba68c8;
+        }
+        #random-message {
+            font-size: 18px;
+            font-style: italic;
+            color: #5d4037;
+        }
+        .action-buttons {
+            margin-top: 20px;
+        }
+        .action-btn {
+            background-color: #a1887f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .action-btn:hover {
+            background-color: #8d6e63;
+            transform: scale(1.05);
+        }
+        .emojis {
+            font-size: 30px;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .refresh-btn {
+            background-color: transparent;
+            border: 2px solid #ba68c8;
+            color: #7e57c2;
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .refresh-btn:hover {
+            background-color: #ba68c8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emojis" id="emoji-display">💜🌸🍫</div>
+        <h1>Para mi Jeymi hermosa</h1>
+        <h1>Tus días son los míos ❤️🔥</h1>
+        
+        <div class="mode-buttons">
+            <button class="mode-btn active" onclick="setMode('love')">Modo Amor 💖</button>
+            <button class="mode-btn" onclick="setMode('fight')">Modo Pelea Bonita 👊💘</button>
+        </div>
+        
+        <div class="message-box">
+            <p id="random-message">Haz clic en un modo para empezar...</p>
+        </div>
+        
+        <button class="refresh-btn" onclick="newMessage()">✨ Cambiar mensaje</button>
+        
+        <div class="action-buttons">
+            <a href="https://wa.me/+50360330849" class="action-btn">💌 WhatsApp</a>
+        </div>
+
+        
+        <div class="emojis">estoy para ti 25/8</div>
+    </div>
+
+    <script>
+        const loveMessages = [
+            "Mi amor, te quiero y te quiero con todo mi corazón ❤️",
+            "Eres mi persona favorita en todos tus estados, hoy y siempre 💖",
+            "Si pudiera, tomaría todo tu dolor y lo convertiría en flores para ti 🌸",
+            "No estás sola, mi amor. Aquí estoy para lo que necesites 🤗",
+            "Los días malos pasarán, pero mi cariño por ti es para siempre 💜",
+            "Te enviaría el sol si pudiera, pero como no puedo, te mando todo mi amor ☀️",
+            "Eres como la luna: aunque a veces no te vea completa, siempre eres hermosa 🌙",
+            "Si necesitas llorar, mi hombro es tuyo. Si necesitas reír, mis chistes malos también 😂",
+            "Cuando te sientas frágil, recuerda que hasta los diamantes están hechos bajo presión 💎",
+            "Mi niña Me encanta, te quiero y te quiero con todo mi corazón ❤️",
+        ];
+
+        const fightMessages = [
+            "¡Peleamos, pero al final siempre te doy la razón... aunque no la tengas! 😤💘",
+            "Si me gritas, te grito más bonito: ¡Me encantaaaaas! 🔥💜",
+            "Podemos discutir, pero el 'te amo' nunca está en discusión 👊❤️",
+            "Peleamos, pero sabes que al rato te voy a abrazar hasta que se te pase el mal genio 🤗💢",
+            "Grita lo que quieras, igual soy tu fan número 1 📢💖",
+            "Si hoy estás de malas, te declaro la guerra... de besos y abrazos 😘💣",
+            "Te peleas con el mundo, pero conmigo solo puedes pelear por tu amor 🎮❤️",
+            "No importa el enojo, siempre termino robándote un beso 😏",
+            "Podemos discutir, pero la reconciliación incluye chocolates y pelis 🍫🎬",
+            "Si hoy peleamos, mañana nos reímos... así funciona esto 👫💞"
+        ];
+
+        const loveEmojis = ["💖", "🌸", "🍫", "🌙", "💟", "🐻", "☕", "💐", "🫂", "💌"];
+        const fightEmojis = ["👊", "💘", "🔥", "💢", "💣", "😤", "🎮", "💋", "😏", "📢"];
+
+        let currentMode = 'love';
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            updateEmojis();
+            newMessage();
+        }
+
+        function newMessage() {
+            let randomMessage;
+            if (currentMode === 'love') {
+                randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            } else {
+                randomMessage = fightMessages[Math.floor(Math.random() * fightMessages.length)];
+            }
+            document.getElementById('random-message').textContent = randomMessage;
+            updateEmojis();
+        }
+
+        function updateEmojis() {
+            const emojiDisplay = document.getElementById('emoji-display');
+            
+            if (currentMode === 'love') {
+                emojiDisplay.textContent = loveEmojis.slice(0, 3).join('');
+                
+            } else {
+                emojiDisplay.textContent = fightEmojis.slice(0, 3).join('');
+                
+            }
+        }
+
+        // Inicializar
+        window.onload = function() {
+            setMode('love');
+        };
+    </script>
+</body>
+</html>
