@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Carta Para Ti 🌹</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://i.imgur.com/X9vQaQp.png'); /* Flores sutiles de fondo */
+            background-size: cover;
+        }
+        
+        .letter {
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin: 20px;
+            border: 1px solid #ffd6e0;
+        }
+        
+        .letter::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ff9a9e);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff6b6b;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #ff6b6b;
+            text-align: right;
+            margin-top: 30px;
+        }
+        
+        .flower {
+            position: absolute;
+            opacity: 0.6;
+            z-index: -1;
+        }
+        
+        .flower-1 {
+            top: 20px;
+            right: 20px;
+            font-size: 3em;
+            transform: rotate(20deg);
+        }
+        
+        .flower-2 {
+            bottom: 10px;
+            left: 15px;
+            font-size: 2.5em;
+            transform: rotate(-15deg);
+        }
+        
+        .heart-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .heart-btn:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: #fff5f7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #ff6b6b;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Efecto de pétalos */
+        .petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .petal {
+            position: absolute;
+            background-image: url('https://i.imgur.com/JnQfW3r.png'); /* Imagen de pétalo */
+            background-size: cover;
+            opacity: 0.6;
+            animation: falling linear infinite;
+        }
+        
+        @keyframes falling {
+            0% { transform: translate(0, -10vh) rotate(0deg); }
+            100% { transform: translate(calc(100vw * var(--x)), 100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter">
+        <!-- Flores decorativas -->
+        <div class="flower flower-1">🌹</div>
+        <div class="flower flower-2">🌸</div>
+        
+        <!-- Efecto de pétalos -->
+        <div class="petals" id="petals"></div>
+        
+        <h1>Para Ti, Mi Querida</h1>
+        
+        <p>Querida <strong> Jeymi Castellano</strong>,</p>
+        
+        <p>Hoy quiero que recuerdes algo importante: <strong>nunca me rendiré</strong>. No porque sea terco, sino porque has demostrado que contigo el cariño es verdadero. no es un sueño, sino una realidad que vale cada batalla.</p>
+        
+        <p>Antes de conocerte, creía que el amor era solo una palabra... pero tú le diste significado, colores y canciones. Por eso, <strong>prometo</strong> que no dejaré que nada ni nadie apague esta luz que solo tú sabes encender.</p>
+        
+        <button class="heart-btn" onclick="showMessage()">Abre mi corazón</button>
+        
+        <div id="hiddenMessage" class="hidden-message">
+            <p>💌 <strong>Mi juramento:</strong></p>
+            <p>"Aunque el mundo me diga que 'abandone', yo seguiré aquí. No por orgullo, sino porque eres la única persona por la que quiero perder el miedo. Eres mi <strong>razón</strong>, mi <strong>fuerza</strong> y mi <strong>verdad</strong>... y eso, mi amorcito, es más fuerte que cualquier obstáculo."</p>
+            <div style="text-align: center; font-size: 2em; margin-top: 10px;">💖</div>
+        </div>
+        
+        <div class="signature">Con todo mi cariño,<br> Mi querida Jeymi</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+            document.querySelector('.heart-btn').style.display = 'none';
+            createPetals();
+        }
+        
+
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            for (let i = 0; i < 15; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                petal.style.width = `${Math.random() * 20 + 10}px`;
+                petal.style.height = `${Math.random() * 20 + 10}px`;
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.setProperty('--x', Math.random());
+                petal.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                petalsContainer.appendChild(petal);
+            }
+        }
+    </script>
+</body>
+</html>
