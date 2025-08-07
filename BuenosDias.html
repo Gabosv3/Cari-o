@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a0a1a;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Estrellas de fondo animadas */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Contenedor principal */
+        .love-box {
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            transform: scale(0.95);
+            animation: pulse 6s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.95); }
+            50% { transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            margin: 0;
+            color: #ff69b4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        .message {
+            font-style: italic;
+            color: #ffb6c1;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Corazones flotantes */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100px) rotate(20deg); }
+        }
+
+        /* Botón de amor secreto */
+        .love-btn {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
+
+        .love-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Mensaje oculto */
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff69b4;
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="love-box">
+        <h1>Buenos Días, Mi Amor</h1>
+        <p>Cada día a tu lado es un regalo del universo.</p>
+        <p class="message">"Eres el sol que ilumina mis mañanas,<br> la calma en mis tormentas,<br> y la razón por la que mi corazón late con fuerza."</p>
+        
+        <button class="love-btn" onclick="showLove()">Presiona Si Me Amas</button>
+        <div class="hidden-message" id="hiddenMessage">¡Yo también te amo infinito! 💖</div>
+    </div>
+
+    <script>
+        // Crear estrellas dinámicas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3 + 1}px`;
+            star.style.height = star.style.width;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // Crear corazones flotantes
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = `${Math.random() * 100}vh`;
+            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heart.style.animationDelay = `${Math.random() * 4}s`;
+            document.body.appendChild(heart);
+        }
+
+        // Mostrar mensaje oculto
+        function showLove() {
+            const message = document.getElementById('hiddenMessage');
+            message.style.display = 'block';
+            message.style.animation = 'fadeIn 1.5s forwards';
+            
+            // Efecto de explosión de corazones
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = '50%';
+                    heart.style.top = '70%';
+                    heart.style.fontSize = `${Math.random() * 25 + 15}px`;
+                    heart.style.animation = `float ${Math.random() * 3 + 2}s ease-in forwards`;
+                    document.body.appendChild(heart);
+                    
+                    // Eliminar corazones después de la animación
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
