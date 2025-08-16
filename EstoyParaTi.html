@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti 💖</title>
+    <style>
+        /* Reset para móviles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #555;
+        }
+
+        /* Libro - Versión simplificada */
+        .book {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Páginas (ahora son "slides") */
+        .page {
+            padding: 30px;
+            text-align: center;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Portada especial */
+        #page1 {
+            background: linear-gradient(135deg, #ffcce6, #f9f3f3);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Tipografía responsive */
+        h1 {
+            color: #d23669;
+            font-size: clamp(20px, 5vw, 28px);
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: clamp(14px, 3.5vw, 18px);
+        }
+
+        .heart {
+            font-size: clamp(30px, 10vw, 50px);
+            margin: 15px 0;
+            color: #ff6b81;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Botones mejorados */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: clamp(14px, 4vw, 16px);
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+
+        .btn:hover {
+            background-color: #d23669;
+            transform: translateY(-2px);
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Ajustes para móviles pequeños */
+        @media (max-width: 400px) {
+            .page {
+                padding: 20px 15px;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                min-width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book">
+        <!-- Página 1 (Portada) -->
+        <div class="page active" id="page1">
+            <h1>Para la persona más especial 💖</h1>
+            <div class="heart">❤️</div>
+            <p>Toca el botón para comenzar...</p>
+            <button class="btn" onclick="nextPage()">Abrir</button>
+        </div>
+
+        <!-- Página 2 -->
+        <div class="page" id="page2">
+            <h1>No estás sola...</h1>
+            <p>Sé que ahora todo puede sentirse confuso, pero quiero que sepas que estoy aquí para ti, sin prisas y sin
+                condiciones.</p>
+            <div class="heart">🤗</div>
+            <div class="btn-container">
+                <button class="btn" onclick="prevPage()">Volver</button>
+                <button class="btn" onclick="nextPage()">Seguir</button>
+            </div>
+        </div>
+
+        <!-- Página 3 -->
+        <div class="page" id="page3">
+            <h1>Lo que más admiro de ti</h1>
+            <p>✨ La fortaleza y la gran persona que eres.</p>
+            <p>💖 Aunque no siempre lo demuestres, el amor y la ternura que me das son únicos.</p>
+            <p>🌱 La forma en que eres conmigo: auténtica, sincera y especial.</p>
+            <div class="btn-container">
+                <button class="btn" onclick="prevPage()">Volver</button>
+                <button class="btn" onclick="nextPage()">Seguir</button>
+            </div>
+        </div>
+
+        <!-- Página 4 -->
+        <div class="page" id="page4">
+            <h1>Recuerda esto siempre</h1>
+            <p>Eres <strong>mucho más fuerte</strong> de lo que crees.</p>
+            <p>Mereces <strong>amor y paz</strong>, hoy y siempre.</p>
+            <div class="heart">🌟</div>
+            <div class="btn-container">
+                <button class="btn" onclick="prevPage()">Volver</button>
+                <button class="btn" onclick="nextPage()">Seguir</button>
+            </div>
+        </div>
+
+        <!-- Página 5 -->
+        <div class="page" id="page5">
+            <h1>Lo mucho que te quiero</h1>
+            <p>No hay un solo día en que no piense en ti.</p>
+            <p>Mi cariño por ti crece más y más, y siempre quiero demostrártelo.</p>
+            <p>Eres alguien <strong>muy especial</strong> para mí y nunca lo olvides. ❤️</p>
+            <div class="heart">💖</div>
+            <div class="btn-container">
+                <button class="btn" onclick="prevPage()">Volver</button>
+                <button class="btn" onclick="closeBook()">Cerrar</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function changePage(newPage) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`page${newPage}`).classList.add('active');
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                changePage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                changePage(currentPage);
+            }
+        }
+
+        function closeBook() {
+            currentPage = 1;
+            changePage(currentPage);
+        }
+
+        // Opcional: Soporte para gestos táctiles en móviles
+        let touchStartX = 0;
+        document.querySelector('.book').addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.querySelector('.book').addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextPage(); // Deslizar izquierda
+            if (touchStartX - touchEndX < -50) prevPage(); // Deslizar derecha
+        }, false);
+    </script>
+</body>
+
+</html>
