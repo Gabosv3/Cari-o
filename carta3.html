@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Jeymi, con amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&display=swap');
+
+body {
+    margin: 0;
+    padding: 40px 20px; /* espacio arriba/abajo y a los lados */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe8e8 0%, #f8f4ff 100%);
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden; /* solo ocultar scroll horizontal */
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Corazones flotantes */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    transform: rotate(45deg);
+    opacity: 0;
+    animation: fall 10s linear infinite;
+}
+
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b6b;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translateY(-10vh) rotate(45deg) scale(0.5);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(45deg) scale(1);
+    }
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform 0.5s ease;
+    margin: 20px; /* margen extra para que los corazones se vean alrededor */
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateX(0deg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #d46a6a;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+    font-style: italic;
+}
+
+/* Estilos para la sección de foto */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.photo-frame {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-align: right;
+    margin-top: 30px;
+    color: #d46a6a;
+    font-weight: bold;
+}
+
+.music-controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    background: #d46a6a;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 106, 106, 0.3);
+}
+
+button:hover {
+    background: #bf5a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(212, 106, 106, 0.4);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 5px;
+    background: #e8c4c4;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #d46a6a;
+    cursor: pointer;
+}
+
+/* Efecto de brillo en el texto especial */
+.highlight {
+    color: #d46a6a;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(212, 106, 106, 0.3);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px rgba(212, 106, 106, 0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(212, 106, 106, 0.6);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .photo-frame {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .music-controls {
+        flex-direction: column;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="card">
+        <div class="card-content">
+            <h1>Para mi querida Jeymi</h1>
+            
+            <p>Mi querida Jeymi,<br><br>
+            quiero que sepas lo mucho que te quiero. No suelo ser así con cualquiera, pero contigo me nace, porque desde que te vi supe que eres alguien <span class="highlight">especial</span>. En tus ojos descubrí un <span class="highlight">brillo único</span> que, cuando se enciende, me parece lo más hermoso.</p>
+            
+            <p>Aunque no llevamos mucho tiempo de conocernos, ya sé que sos la persona que alegra todos mis días. 
+            Tu forma de ser, tu sonrisa y esa energía única que tenés hacen que cada momento a tu lado sea especial. 
+            No importa cómo haya sido mi día, con solo verte todo se vuelve más brillante.</p>
+            
+            <!-- Sección de foto añadida aquí -->
+            <div class="photo-container">
+                <div class="photo-frame">
+                    <img src="img/1.jpg" alt="Nuestra foto especial">
+                </div>
+            </div>
+            
+            <div class="signature">Con todo mi amor, Gabrielito</div>
+            
+            <div class="music-controls">
+                <button id="playBtn">▶ Reproducir</button>
+                <button id="pauseBtn">⏸ Pausar</button>
+                <div class="volume-control">
+                    <span>🔊</span>
+                    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="musica/UNVESTIDODEBESOS.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // Crear corazones flotantes
+        const heartsContainer = document.getElementById('hearts');
+        const numHearts = 25;
+        
+        for (let i = 0; i < numHearts; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // Posición aleatoria
+            heart.style.left = Math.random() * 100 + 'vw';
+            
+            // Tamaño aleatorio
+            const size = Math.random() * 15 + 10;
+            heart.style.width = size + 'px';
+            heart.style.height = size + 'px';
+            
+            // Retraso aleatorio en la animación
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            
+            // Color aleatorio (tonos rosas/rojos)
+            const hue = Math.floor(Math.random() * 20 + 340); // Entre 340 y 360 (rojos)
+            const color = `hsl(${hue}, 70%, 65%)`;
+            heart.style.background = color;
+            heart.style.setProperty('--heart-color', color);
+            
+            heartsContainer.appendChild(heart);
+        }
+        
+        // Control de música
+        const audio = document.getElementById('backgroundMusic');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const volumeControl = document.getElementById('volumeControl');
+        
+        playBtn.addEventListener('click', () => {
+            audio.play();
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+        });
+        
+        volumeControl.addEventListener('input', () => {
+            audio.volume = volumeControl.value;
+        });
+        
+        // Establecer volumen inicial
+        audio.volume = volumeControl.value;
+    </script>
+</body>
+</html>
