@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Jeymi 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(135deg, #ffd6d6 0%, #ffb6c1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #8b4513;
+        }
+
+        .letter-container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff9f9;
+            border-radius: 15px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 2px solid #ffb6c1;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 15px;
+        }
+
+        .letter-header h1 {
+            font-size: 32px;
+            color: #d63384;
+            margin-bottom: 5px;
+        }
+
+        .heart {
+            font-size: 24px;
+            color: #ff6b6b;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .letter-content {
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            margin-top: 25px;
+            text-align: right;
+            font-size: 24px;
+            color: #d63384;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b6b;
+            opacity: 0.7;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="letter-header">
+            <h1>Para Jeymi <span class="heart">💖</span></h1>
+            <div>Mi amor eterno</div>
+        </div>
+        
+        <div class="letter-content">
+            <p>Mi querida Jeymi 💫</p>
+            
+            <p>No tienes idea de lo importante y especial que eres en mi vida 🌸</p>
+            
+            <p>Nunca había amado así a alguien 💞 Contigo supero mis límites cada día 🌱</p>
+            
+            <p>Me siento embobado 😍 y completamente enamorado de ti ✨</p>
+            
+            <p>Con todo mi corazón te dedico estas palabras 💓</p>
+            
+            <p>Sé que a veces soy loco 🤪 pero es porque nunca me había sentido tan importante para alguien 🌟</p>
+            
+            <p>Eres esa persona que jamás dejaré que se aleje 🛤️</p>
+            
+            <p>Eres con quien me miro y digo: "Dios, permite que se quede conmigo muchos años" 🙏💕</p>
+            
+            <p>Eres mi sueño hecho realidad 🦋 y mi eterno amor 💘</p>
+        </div>
+        
+        <div class="signature">
+            Con todo mi amor 💖<br>
+            Para siempre
+        </div>
+        
+        <div class="floating-hearts" id="hearts"></div>
+    </div>
+
+    <script>
+        // Crear corazones flotantes
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 8;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '💖';
+                
+                // Posición aleatoria
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 2;
+                
+                heart.style.left = `${left}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Iniciar cuando la página cargue
+        document.addEventListener('DOMContentLoaded', createHearts);
+    </script>
+</body>
+</html>
