@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos Días, Mi Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .letter-container {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .letter-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23e4edf5" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+            color: #555;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-weight: 300;
+            color: #777;
+        }
+        
+        .heart {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2.5rem;
+            animation: heartbeat 1.5s infinite;
+            z-index: 2;
+            color: #ff6b6b;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .letter-content {
+            padding: 40px;
+            line-height: 1.7;
+            color: #444;
+            font-size: 1.1rem;
+            position: relative;
+            background: white;
+        }
+        
+        .greeting {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #555;
+            font-weight: 500;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .message {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .message p {
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #a0c1d1;
+            margin: 25px 0;
+            font-style: italic;
+            color: #555;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+        
+        .motivational {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .motivational h3 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .motivational ul {
+            list-style-type: none;
+        }
+        
+        .motivational li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            color: #555;
+        }
+        
+        .motivational li:before {
+            content: "❤";
+            color: #ff9e9e;
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+        
+        .closing {
+            margin-top: 40px;
+            text-align: right;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .signature {
+            font-weight: bold;
+            color: #555;
+            font-size: 1.4rem;
+            margin-top: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            color: #777;
+            position: relative;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .footer p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .envelope-flap {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f8f9fa;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .floating-hearts span {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.2;
+            animation: float 8s infinite linear;
+            color: #a0c1d1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .letter-content {
+                padding: 25px;
+            }
+            
+            .heart {
+                top: 20px;
+                right: 20px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="header">
+            <div class="heart">❤️</div>
+            <div class="header-content">
+                <h1>Buenos Días, Mi Vida</h1>
+                <p>Un mensaje del corazón para empezar tu día</p>
+            </div>
+        </div>
+        
+        <div class="letter-content">
+            <div class="floating-hearts" id="hearts-container"></div>
+            
+            <p class="greeting">Mi amor, mi razón, mi niña hermosa,</p>
+            
+            <div class="message">
+                <p>Al despertar hoy, lo primero que vino a mi mente fuiste tú. Tu sonrisa, tu fuerza, esa luz especial que emanas incluso en los días más difíciles. Quiero que sepas que cada esfuerzo que haces no pasa desapercibido; cada sacrificio, cada hora de trabajo, cada momento en el que das lo mejor de ti, construye el increíble futuro que mereces.</p>
+                
+                <p>Veo cómo te levantas cada día con determinación, cómo enfrentas los desafíos con esa valentía que tanto admiro. Eres como el faro que ilumina incluso en la tormenta más oscura, y quiero recordarte hoy que esa luz también te pertenece a ti.</p>
+            </div>
+            
+            <div class="highlight">
+                <p>Tu dedicación es inspiradora, pero recuerda que tu bienestar es sagrado. En medio de tanto trabajo, no olvides escuchar a tu corazón, darle espacio a tus sueños y permitirte momentos de quietud.</p>
+            </div>
+            
+            <div class="motivational">
+                <h3>Para que nunca lo olvides:</h3>
+                <ul>
+                    <li>Eres más fuerte de lo que cualquier circunstancia pueda hacerte creer</li>
+                    <li>Cada paso, por pequeño que sea, te acerca a donde quieres estar</li>
+                    <li>Tu valor no se mide por tu productividad, sino por tu esencia</li>
+                    <li>Mereces pausas, mereces alegrías, mereces amor incondicional</li>
+                    <li>Tu perseverancia está construyendo un legado de inspiración</li>
+                </ul>
+            </div>
+            
+            <div class="message">
+                <p>Hoy, mientras enfrentas tus responsabilidades, quiero que lleves contigo esta certeza: estoy aquí, admirándote, apoyándote, creyendo en ti incluso en esos momentos en que dudas de ti misma. Eres mi orgullo, mi mayor regalo.</p>
+                
+                <p>No hay obstáculo que no puedas superar, no hay meta que no puedas alcanzar. Y en este camino, quiero que sepas que no estás sola. Juntos somos más fuertes, juntos podemos con todo.</p>
+            </div>
+            
+            <div class="closing">
+                <p>Con todo el amor que cabe en mi corazón,</p>
+                <p class="signature">Tu compañero de vida</p>
+            </div>
+        </div>
+        
+        <div class="envelope-flap"></div>
+        <div class="footer">
+            <p>Que este día te traiga pequeños milagros y grandes satisfacciones</p>
+        </div>
+    </div>
+
+    <script>
+        // Crear corazones flotantes
+        const heartsContainer = document.getElementById('hearts-container');
+        const hearts = ['❤️', '💖', '💕', '💗', '💓', '💞'];
+        
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('span');
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 0.8 + 0.8) + 'rem';
+            heartsContainer.appendChild(heart);
+        }
+        
+        // Efecto de escritura para el saludo
+        document.addEventListener('DOMContentLoaded', function() {
+            const greeting = document.querySelector('.greeting');
+            const originalText = greeting.textContent;
+            greeting.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    greeting.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
