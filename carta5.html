@@ -1,399 +1,399 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<cabeza>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carta para Jeymi<title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<estilo>
-* {
-margen: 0;
-relleno: 0;
-Tamaño de la caja: Border-box;
-}
-
-cuerpo {
-Antecedentes: gradiente lineal (135o, #F5F7FA 0%, #C3CFE2 100%);
-Altura mínima: 100Vh;
-Pantalla: Flex;
-Justify-Content: centro;
-Alinear elementos: centro;
-Familia de fuentes: "Playfair Display", serif;
-relleno: 20px;
-desbordamiento-X: oculto;
-}
-
-Escena {
-anchura: 100%;
-ancho máximo: 800px;
-posición: relativa;
-Perspectiva: 1000px;
-Pantalla: Flex;
-Dirección flexible: columna;
-Alinear elementos: centro;
-}
-
-/* Estilos del sobre */
-.contenedor de sobres {
-posición: relativa;
-anchura: 320px;
-Altura: 220px;
-margen inferior: 50px;
-Cursor: puntero;
-Índice Z: 10;
-}
-
-Sobre.
-posición: relativa;
-anchura: 100%;
-Altura: 100%;
-Transición: transformar la facilidad de 0,5;
-}
-
-Sobre.abierto.abierto. {
-transformada: translateY (-50px);
-}
-
-frente a sobres. {
-Posición: absoluta;
-anchura: 100%;
-Altura: 100%;
-Antecedentes: gradiente lineal (135o, #E8C5B0.0%, #D4A798.100.0);
-Clip-path: polígono (0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
-Sombra de caja: 0.10px 30px RGBA (0, 0, 0, 0,15);
-radio de frontera: 5px;
-Z-índice: 2;
-}
-
-solapa de sobre.
-Posición: absoluta;
-anchura: 100%;
-Altura: 100%;
-Antecedentes: gradiente lineal (135o, #e0b6a0.0%, #C99785.100;
-Clip-path: polígono (50% 50%, 0%, 100% 0%);
-Transform-origen: TOP;
-Transición: transformar la facilidad del 0,8;
-Z-índice: 3;
-radio de borde: 5px 5px 0.0;
-}
-
-sobre.sobre.abierto.sobre.sobre-rebo. {
-transformada: rotateX (180 grados);
-}
-
-.sobre-de espalda {
-Posición: absoluta;
-anchura: 100%;
-Altura: 100%;
-Antecedentes: #E8D2C4;
-Clip-path: polígono (0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%);
-Índice Z: 1;
-}
-
-.sello sobre. {Son sobre.
-Posición: absoluta;
-Abajo: 20px;
-izquierda: 50%;
-transformar: translateX (-50%);
-anchura: 60px;
-Altura: 60px;
-Antecedentes: gradiente lineal (135o, #C94b4b 0%, #B24545 100%);
-radio de frontera: 50%;
-Pantalla: Flex;
-Justify-Content: centro;
-Alinear elementos: centro;
-color: blanco;
-Tamaño de la fuente: 24px;
-Sombra de caja: 0,5px 15px RGBA (0, 0.2);
-Z-índice: 4;
-}
-
-Sello de sobre sobre i {
-animación: heartBeat 1.5s infinito;
-}
-
-dirección sobre sobre. {
-Posición: absoluta;
-TOP: 60px;
-izquierda: 50%;
-transformar: translateX (-50%);
-Alineación de texto: centro;
-Color: #5A3921;
-Z-índice: 2;
-Familia de fuentes: "Dancing Script", cursiva;
-}
-
-.dirección sobre.to {
-Tamaño de la fuente: 20px;
-margen inferior: 5px;
-}
-
-dirección sobre.nombre {
-Tamaño de la fuente: 28px;
-Peso de fuente: negrita;
-}
-
-/* Estilos de la carta */
-.contenedor de letras {
-Posición: absoluta;
-TOP: 40px;
-anchura: 300px;
-Z-índice: 5;
-Transición: facilidad de todos los 1;
-opacidad: 0;
-transformar: traducir Y (20px);
-}
-
-.letter-container.open {
-opacidad: 1;
-transformar: traducir Y (0);
-Índice Z: 15;
-}
-
-Carta {
-Antecedentes: #FFEF7;
-radio de frontera: 8px;
-relleno: 30px;
-Sombra de caja: 0,15px 40px (RGBA) (0, 0, 0, 0, 2);
-posición: relativa;
-Transform-origen: centro superior;
-Transición: transformar la facilidad de 0,5;
-Altura mínima: 400px;
-borde: 1px sólido #F0E6D6;
-}
-
-Carta.abierta. {
-Transformar: escala (1.05);
-}
-
-.carta de letras {
-Alineación de texto: centro;
-margen inferior: 25px;
-posición: relativa;
-}
-
-.letter-header H1 {
-Familia de fuentes: "Dancing Script", cursiva;
-Tamaño de la fuente: 36px;
-Color: C94B4B;
-margen inferior: 10px;
-}
-
-.fecha de carta. {
-Tamaño de la fuente: 14px;
-Color: #888;
-estilo fuente: cursiva;
-margen inferior: 15px;
-}
-
-Carta-salutación {
-Tamaño de la fuente: 18px;
-Color: #5A3921;
-margen inferior: 20px;
-Peso de fuente: negrita;
-}
-
-cuerpo de letras {
-altura de la línea: 1,8;
-Tamaño de la fuente: 16px;
-Color: #333;
-margen inferior: 25px;
-Alineación textual: justificar;
-}
-
-.letter-body p {
-margen inferior: 15px;
-}
-
-.letra firma {
-Alineación textual: derecho;
-margen superior: 30px;
-Familia de fuentes: "Dancing Script", cursiva;
-Tamaño de la fuente: 28px;
-Color: C94B4B;
-Peso de fuente: negrita;
-}
-
-.decoración con letras {
-Posición: absoluta;
-opacidad: 0,1;
-Tamaño de la fuente: 100px;
-Color: C94B4B;
-Derecha: 20px;
-Abajo: 20px;
-}
-
-.letter-fold {
-Posición: absoluta;
-TOP: -10px;
-Izquierda: 20px;
-anchura: 40px;
-Altura: 10px;
-Antecedentes: #0E6D6;
-radio de borde: 5px 5px 0.0;
-}
-
-/* Botón para cerrar la carta */
-.carta cerrada {
-Posición: absoluta;
-TOP: 15px;
-Derecha: 15px;
-Antecedentes: transparente;
-Frontera: ninguna;
-Tamaño de la fuente: 20px;
-Color: C94B4B;
-Cursor: puntero;
-anchura: 30px;
-Altura: 30px;
-radio de frontera: 50%;
-Pantalla: Flex;
-Justify-Content: centro;
-Alinear elementos: centro;
-Transición: todos los 0,3 son la facilidad;
-Índice Z: 20;
-}
-
-.Carta cerrada: Hover {
-Antecedentes: RGBA (201, 75, 0,1);
-}
-
-/* Instrucciones */
-Instrucciones {
-Alineación de texto: centro;
-margen superior: 30px;
-Color: #5A3921;
-Tamaño de la fuente: 16px;
-ancho máximo: 400px;
-Antecedentes: RGBA (255, 255, 255, 0.7);
-relleno: 15px;
-radio de frontera: 10px;
-Sombra de caja: 0,5px 15px RGBA (0, 0, 0, 0,05);
-}
-
-Instrucciones I.
-Color: C94B4B;
-margen derecho: 8px;
-}
-
-/* Animaciones */
-@keyframes HeartBeat {
-0%, 100% {transformado: escala (1); }
-50% {transformado: escala (1.1); }
-}
-
-@keyframes flotación {
-0%, 100% {transformado: traducida (0); }
-50% {transformado: translateY (-10px); }
-}
-
-.flotante {
-Animación: Infinite Facility-In-Out de Float 3;
-}
-
-/* Efectos de partículas */
-.partículas {
-Posición: absoluta;
-anchura: 100%;
-Altura: 100%;
-Eventos de puntero: ninguno;
-Índice Z: 1;
-}
-
-.partícula {
-Posición: absoluta;
-Antecedentes: C94B4B;
-radio de frontera: 50%;
-opacidad: 0,3;
-}
-
-/* Responsivo */
-@media (ancho máximo: 768px) {
-.contenedor de sobres {
-anchura: 280px;
-Altura: 190px;
-}
-
-.contenedor de letras {
-anchura: 260px;
-}
-
-Carta {
-relleno: 20px;
-Altura mínima: 350px;
-}
-
-.letter-header H1 {
-Tamaño de la fuente: 30px;
-}
-
-cuerpo de letras {
-Tamaño de la fuente: 15px;
-}
-}
-
-@media (ancho máximo: 480px) {
-.contenedor de sobres {
-anchura: 250px;
-Altura: 170px;
-}
-
-.contenedor de letras {
-anchura: 230px;
-}
-
-Carta {
-relleno: 15px;
-Altura mínima: 320px;
-}
-
-.letter-header H1 {
-Tamaño de la fuente: 26px;
-}
-
-cuerpo de letras {
-Tamaño de la fuente: 14px;
-}
-}
-</style>
-Head>
-<cuerpo>
-<div class="escena">
-<!-- Partículas decorativas -->
-<div class="partículas" id="partículas"></div>
-
-<!-- Sobre -->
-<div class="envolvente-contenedor" id="envolvente-contenedor">
-<div class="envelope" id="envelope">
-<div class="envolve-front"></div>
-<div class="envolve-flap"></div>
-<div class="envelope-back"></div>
-<div class="sello-sobre">
-<i class="fas fa-heart"></i>
-</div>
-<div class="envolve-address">
-<div class="to">Para:</div>
-<div class="name">Jeymi</div>
-</div>
-</div>
-</div>
-
-<!-- Carta -->
-<div class="letter-container" id="letter-container">
-<div class="letter" id="letter">
-<Botón Class="Close-Letter" ID="Close-Letter">
-<i class="fas fa-times"></i>
-Botón>
-<div class="letter-fold"></div>
-<div class="letter-header">
-<h1>Buenos Días <h1>
-<div class="letter-date" id="actual-date"></div>
-</div>
-
-<div class="letra-salutación">Mi querida Jeymi,</div>
-
-<div class="letter-body">
-<h1><span class="heart">♥</span>Buenos días, mi amada</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Jeymi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .scene {
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            perspective: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Estilos del sobre */
+        .envelope-container {
+            position: relative;
+            width: 320px;
+            height: 220px;
+            margin-bottom: 50px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .envelope.open {
+            transform: translateY(-50px);
+        }
+        
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8c5b0 0%, #d4a798 100%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            z-index: 2;
+        }
+        
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e0b6a0 0%, #c99785 100%);
+            clip-path: polygon(50% 50%, 0% 0%, 100% 0%);
+            transform-origin: top;
+            transition: transform 0.8s ease;
+            z-index: 3;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+        
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #e8d2c4;
+            clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+        
+        .envelope-seal {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #c94b4b 0%, #b24545 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+        }
+        
+        .envelope-seal i {
+            animation: heartBeat 1.5s infinite;
+        }
+        
+        .envelope-address {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #5a3921;
+            z-index: 2;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .envelope-address .to {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .envelope-address .name {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* Estilos de la carta */
+        .letter-container {
+            position: absolute;
+            top: 40px;
+            width: 300px;
+            z-index: 5;
+            transition: all 1s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .letter-container.open {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 15;
+        }
+        
+        .letter {
+            background: #fffef7;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform-origin: top center;
+            transition: transform 0.5s ease;
+            min-height: 400px;
+            border: 1px solid #f0e6d6;
+        }
+        
+        .letter.open {
+            transform: scale(1.05);
+        }
+        
+        .letter-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .letter-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: #c94b4b;
+            margin-bottom: 10px;
+        }
+        
+        .letter-date {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .letter-salutation {
+            font-size: 18px;
+            color: #5a3921;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .letter-body {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .letter-body p {
+            margin-bottom: 15px;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #c94b4b;
+            font-weight: bold;
+        }
+        
+        .letter-decoration {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 100px;
+            color: #c94b4b;
+            right: 20px;
+            bottom: 20px;
+        }
+        
+        .letter-fold {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 40px;
+            height: 10px;
+            background: #f0e6d6;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        /* Botón para cerrar la carta */
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: #c94b4b;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+        
+        .close-letter:hover {
+            background: rgba(201, 75, 75, 0.1);
+        }
+        
+        /* Instrucciones */
+        .instructions {
+            text-align: center;
+            margin-top: 30px;
+            color: #5a3921;
+            font-size: 16px;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instructions i {
+            color: #c94b4b;
+            margin-right: 8px;
+        }
+        
+        /* Animaciones */
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        /* Efectos de partículas */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: #c94b4b;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .envelope-container {
+                width: 280px;
+                height: 190px;
+            }
+            
+            .letter-container {
+                width: 260px;
+            }
+            
+            .letter {
+                padding: 20px;
+                min-height: 350px;
+            }
+            
+            .letter-header h1 {
+                font-size: 30px;
+            }
+            
+            .letter-body {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .envelope-container {
+                width: 250px;
+                height: 170px;
+            }
+            
+            .letter-container {
+                width: 230px;
+            }
+            
+            .letter {
+                padding: 15px;
+                min-height: 320px;
+            }
+            
+            .letter-header h1 {
+                font-size: 26px;
+            }
+            
+            .letter-body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <!-- Partículas decorativas -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- Sobre -->
+        <div class="envelope-container" id="envelope-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-back"></div>
+                <div class="envelope-seal">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="envelope-address">
+                    <div class="to">Para:</div>
+                    <div class="name">Jeymi</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carta -->
+        <div class="letter-container" id="letter-container">
+            <div class="letter" id="letter">
+                <button class="close-letter" id="close-letter">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="letter-fold"></div>
+                <div class="letter-header">
+                    <h1>Buenos Días</h1>
+                    <div class="letter-date" id="current-date"></div>
+                </div>
+                
+                <div class="letter-salutation">Mi querida Jeymi,</div>
+                
+                <div class="letter-body">
+                    <h1><span class="heart">♥</span>Buenos días, mi amada</h1>
 
     <p>Lo digo y lo repito: <strong>tú eres lo más bonito que me ha pasado.</strong></p>
 
@@ -406,179 +406,179 @@ Botón>
     <p class="signature">Te amo mucho, Jeymi.</p>
 
     <p class="small">¿Puedo seguir siendo tu Gabrielito? 😔❤️</p>
-</div>
+                </div>
+                
+                <div class="letter-signature">
+                    Con todo mi cariño
+                </div>
+                
+                <div class="letter-decoration">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instrucciones -->
+        <div class="instructions floating">
+            <p><i class="fas fa-mouse-pointer"></i> Haz clic en el sobre para abrirlo y ver la carta</p>
+            <p><i class="fas fa-heart"></i> Una vez abierta, puedes cerrarla con el botón en la esquina superior derecha</p>
+        </div>
+    </div>
 
-<div class="letter-signature">
-Con todo mi cariño.
-</div>
-
-<div class="letrea-decoración">
-<i class="fas fa-heart"></i>
-</div>
-</div>
-</div>
-
-<!--- Instrucciones -->
-<div class="instrucciones flotantes">
-<p><i class="fas fa-mouse-pointer"><i> Haz clic en el sobre para abrirlo y ver la carta</p>.
-Una vez abierta, puedes cerrarla con el botón en la esquina superior derecha. Una vez abierta, puedes cerrarla con el botón en la esquina superior derecha.
-</div>
-</div>
-
-<script>
-Elementos del DOM
-const sobreContainer = document.getElementById ("contenedor sobre");
-sobre const = document.getElementById ("sobre");
-const letterContainer = document.getElementById ("contenedor de letras");
-const letter = document.getElementById ("carta");
-const closeLetterBtn = document.getElementById ("carta cerrada");
-const currentDateElement = document.getElementById ("fecha actual");
-const particlesContainer = document.getElementById ("partículas");
-
-// Estado de la carta
-let isOpen = false;
-
-// Función para formatear la fecha.
-Formato de funciónCurrentDate () {
-const ahora = nueva fecha ();
-opciones de const = {
-Día de la semana: 'largo',
-Año: "numérico",
-Mes: 'largo',
-Día: Numérico
-};
-volver ahora.toLocaleDateString ('es-ES', opciones);
-}
-
-// Actualizar fecha actual
-currentDateElement.textContent = formatCurrentDate ();
-
-// Crear partículas decorativas
-función CreateParticles () {
-Contar partículas = 20;
-
-para (let i = 0; i < partículasCuenta; i++) {
-const partícula = document.createElement ('div');
-particle.classList.add ("partícula");
-
-// Tamaño aleatorio
-tamaño de const = Math.random () * 10 + 5;
-particle.style.width = '${size}px';
-particle.style.height = '${size}px';
-
-// Posición aleatoria
-particle.style.left = '${Math.random () * 100}%';
-particle.style.top = '${Math.random () * 100}%';
-
-// Color aleatorio (tonos rojos/rosas)
-const hue = Math.floor (Math.random () * 20 + 340);
-particle.style.backgroundColor = 'hsl (${hue}, 70%, 65%) ;
-
-// Opacidad aleatoria
-particle.style.opacity = Math.random () * 0.4 + 0.1;
-
-// Animación
-duración del const = Math.random () * 10 + 10;
-const delay = Math.random () * 5;
-particle.style.animation = 'flot ${duration}s infinita facilidad-in-out ${retrasos};
-
-partículasContainer.appendChild (partícula);
-}
-}
-
-// Abrir carta
-función openLetter () {
-si (está abierto) el retorno;
-
-isOpen = true;
-
-// Abrir sobre
-envelope.classList.add ("abierto");
-
-// Esperar a que se abra el sobre y luego mostrar la carta.
-setTimeout (() => {
-letterContainer.classList.add ("abierto");
-
-// Esperar un poco y luego hacer un pequeño efecto en la carta.
-setTimeout (() => {
-letter.classList.add ("abierto");
-}, 300);
-}, 800);
-}
-
-// Cerrar carta
-función closeLetter () {
-si (!isOpen) regresa;
-
-isOpen = false;
-
-// Cerrar carta primero
-letter.classList.remove ("abierto");
-
-// Esperar y luego cerrar el contenedor.
-setTimeout (() => {
-letterContainer.classList.remove ("abierto");
-
-// Esperar y cerrar el sobre.
-setTimeout (() => {
-envelope.classList.remove ("abierto");
-}, 300);
-}, 300);
-}
-
-// Oyentes de eventos
-sobreContainer.addEventListener ('clic', openLetter);
-closeLetterBtn.addEventListener ('clic', closeLetter);
-
-// También permitir cerrar la carta haciendo clic fuera de ella.
-letterContainer.addEventListener ('click', función (e) {.
-if (e.target == letterContainer) {
-CloseLetter ();
-}
-});
-
-// Crear partículas al cargar.
-window.addEventListener ("cargar", crear partículas);
-
-// Efecto de sonido simulado (solo visual)
-sobreContainer.addEventListener ('click', función () {.
-si (! está abierto) {
-// Crear un efecto visual de "ondas" al hacer clic.
-const ripple = document.createElement ('div');
-ripple.style.position = "absoluto";
-ripple.style.width = '100%';
-ripple.style.height = '100%';
-ripple.style.borderRadius = '50%';
-ripple.style.backgroundColor = 'rgba (201, 75, 75, 0.2).;
-ripple.style.transform = 'escala (0) ';
-ripple.style.transition = "transformar el 0,6s de alivio, opacidad el 0,6s de alivio";
-ripple.style.opacity = '1';
-
-sobreContainer.appendChild (ondulación);
-
-// Animar el efecto de onda
-setTimeout (() => {
-ripple.style.transform = "escala (2) ";
-ripple.style.opacity = '0';
-}, 10);
-
-// Eliminar el elemento después de la animación.
-setTimeout (() => {
-Ripple.remove ();
-}, 700);
-}
-});
-
-// Efecto de brillo al pasar el ratón sobre el sobre.
-sobreContainer.addEventListener ("ratón", función () {).
-si (! está abierto) {
-envelope.style.filter = "brillo" (1.1).;
-}
-});
-
-sobreContainer.addEventListener ('mouseleave', función () {.
-envelope.style.filter = "brillo (1) ";
-});
-</script>
+    <script>
+        // Elementos del DOM
+        const envelopeContainer = document.getElementById('envelope-container');
+        const envelope = document.getElementById('envelope');
+        const letterContainer = document.getElementById('letter-container');
+        const letter = document.getElementById('letter');
+        const closeLetterBtn = document.getElementById('close-letter');
+        const currentDateElement = document.getElementById('current-date');
+        const particlesContainer = document.getElementById('particles');
+        
+        // Estado de la carta
+        let isOpen = false;
+        
+        // Función para formatear la fecha
+        function formatCurrentDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            return now.toLocaleDateString('es-ES', options);
+        }
+        
+        // Actualizar fecha actual
+        currentDateElement.textContent = formatCurrentDate();
+        
+        // Crear partículas decorativas
+        function createParticles() {
+            const particlesCount = 20;
+            
+            for (let i = 0; i < particlesCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Color aleatorio (tonos rojos/rosas)
+                const hue = Math.floor(Math.random() * 20 + 340);
+                particle.style.backgroundColor = `hsl(${hue}, 70%, 65%)`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.4 + 0.1;
+                
+                // Animación
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Abrir carta
+        function openLetter() {
+            if (isOpen) return;
+            
+            isOpen = true;
+            
+            // Abrir sobre
+            envelope.classList.add('open');
+            
+            // Esperar a que se abra el sobre y luego mostrar la carta
+            setTimeout(() => {
+                letterContainer.classList.add('open');
+                
+                // Esperar un poco y luego hacer un pequeño efecto en la carta
+                setTimeout(() => {
+                    letter.classList.add('open');
+                }, 300);
+            }, 800);
+        }
+        
+        // Cerrar carta
+        function closeLetter() {
+            if (!isOpen) return;
+            
+            isOpen = false;
+            
+            // Cerrar carta primero
+            letter.classList.remove('open');
+            
+            // Esperar y luego cerrar el contenedor
+            setTimeout(() => {
+                letterContainer.classList.remove('open');
+                
+                // Esperar y cerrar el sobre
+                setTimeout(() => {
+                    envelope.classList.remove('open');
+                }, 300);
+            }, 300);
+        }
+        
+        // Event Listeners
+        envelopeContainer.addEventListener('click', openLetter);
+        closeLetterBtn.addEventListener('click', closeLetter);
+        
+        // También permitir cerrar la carta haciendo clic fuera de ella
+        letterContainer.addEventListener('click', function(e) {
+            if (e.target === letterContainer) {
+                closeLetter();
+            }
+        });
+        
+        // Crear partículas al cargar
+        window.addEventListener('load', createParticles);
+        
+        // Efecto de sonido simulado (solo visual)
+        envelopeContainer.addEventListener('click', function() {
+            if (!isOpen) {
+                // Crear un efecto visual de "ondas" al hacer clic
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '100%';
+                ripple.style.height = '100%';
+                ripple.style.borderRadius = '50%';
+                ripple.style.backgroundColor = 'rgba(201, 75, 75, 0.2)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.transition = 'transform 0.6s ease-out, opacity 0.6s ease-out';
+                ripple.style.opacity = '1';
+                
+                envelopeContainer.appendChild(ripple);
+                
+                // Animar el efecto de onda
+                setTimeout(() => {
+                    ripple.style.transform = 'scale(2)';
+                    ripple.style.opacity = '0';
+                }, 10);
+                
+                // Eliminar el elemento después de la animación
+                setTimeout(() => {
+                    ripple.remove();
+                }, 700);
+            }
+        });
+        
+        // Efecto de brillo al pasar el ratón sobre el sobre
+        envelopeContainer.addEventListener('mouseenter', function() {
+            if (!isOpen) {
+                envelope.style.filter = 'brightness(1.1)';
+            }
+        });
+        
+        envelopeContainer.addEventListener('mouseleave', function() {
+            envelope.style.filter = 'brightness(1)';
+        });
+    </script>
 </body>
-</html> 
+</html>
