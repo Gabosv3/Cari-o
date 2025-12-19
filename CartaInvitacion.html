@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* Envelope elegante */
+        .envelope-wrapper {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.6s ease;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .envelope:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #a855f7, #d946ef);
+        }
+
+        .envelope.flipped {
+            transform: translateY(-100px) rotateY(180deg);
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .envelope-content {
+            padding: 40px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .envelope-icon {
+            color: #d946ef;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: gentlePulse 2s infinite;
+        }
+
+        .envelope-title {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .envelope-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Solapa del sobre */
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 225px solid transparent;
+            border-right: 225px solid transparent;
+            border-top: 120px solid #f3e8ff;
+            z-index: 3;
+            transition: all 0.5s ease 0.3s;
+            pointer-events: none;
+        }
+
+        .envelope-wrapper:hover .flap {
+            border-top-color: #e9d5ff;
+        }
+
+        .flap.opened {
+            transform: translateX(-50%) translateY(-120px);
+            opacity: 0;
+        }
+
+        /* Sello */
+        .seal {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: #d946ef;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 4;
+            box-shadow: 0 4px 10px rgba(217, 70, 239, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .seal:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Carta que aparece */
+        .letter {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            position: relative;
+            z-index: 0;
+        }
+
+        .letter.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .letter:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #a855f7, #d946ef);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .letter-title {
+            color: #7c3aed;
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .letter-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: #d946ef;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .letter-message {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        /* Información destacada */
+        .details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .detail-item {
+            padding: 20px;
+            background: #faf5ff;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            border: 1px solid #f3e8ff;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-icon {
+            color: #a855f7;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Botón elegante */
+        .action-btn {
+            background: linear-gradient(135deg, #a855f7, #d946ef);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Corazones decorativos */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(217, 70, 239, 0.1);
+            font-size: 20px;
+            animation: float 15s infinite linear;
+        }
+
+        /* Instrucciones */
+        .instruction {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Animaciones */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .envelope-wrapper {
+                height: 250px;
+            }
+            
+            .flap {
+                border-left: 180px solid transparent;
+                border-right: 180px solid transparent;
+            }
+            
+            .envelope-content {
+                padding: 30px;
+            }
+            
+            .envelope-title {
+                font-size: 1.6rem;
+            }
+            
+            .letter {
+                padding: 30px 25px;
+            }
+            
+            .letter-title {
+                font-size: 1.7rem;
+            }
+            
+            .details {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .detail-item {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .envelope-wrapper {
+                height: 230px;
+            }
+            
+            .flap {
+                border-left: 150px solid transparent;
+                border-right: 150px solid transparent;
+            }
+            
+            .letter {
+                padding: 25px 20px;
+            }
+            
+            .letter-message {
+                font-size: 1.1rem;
+            }
+            
+            .action-btn {
+                width: 100%;
+                padding: 14px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="flap" id="flap"></div>
+            
+            <div class="envelope" id="envelope">
+                <div class="envelope-content">
+                    <div class="envelope-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h2 class="envelope-title">Una Invitación Especial</h2>
+                    <p class="envelope-subtitle">Haz clic para abrir</p>
+                </div>
+            </div>
+            
+            <div class="seal" id="seal">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+        
+        <div class="letter" id="letter">
+            <h2 class="letter-title">Una Noche Especial</h2>
+            
+            <p class="letter-message">
+                Me encantaría compartir una noche especial contigo. 
+                Un momento para crear recuerdos inolvidables juntos.
+            </p>
+            
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="detail-label">Fecha</div>
+                    <div class="detail-value">27 de Noviembre</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="detail-label">Hora</div>
+                    <div class="detail-value">11:00</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="detail-label">Lugar</div>
+                    <div class="detail-value">Alegría</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="detail-label">Ocasión</div>
+                    <div class="detail-value">Especial</div>
+                </div>
+            </div>
+            
+            <p class="letter-message">
+                Espero que puedas acompañarme. Será una velada que recordaremos.
+            </p>
+            
+            <button class="action-btn" id="confirmBtn">
+                <i class="fas fa-check-circle"></i> Confirmar Asistencia
+            </button>
+        </div>
+        
+        <p class="instruction">Haz clic en el sobre para abrir la invitación</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const envelope = document.getElementById('envelope');
+            const flap = document.getElementById('flap');
+            const seal = document.getElementById('seal');
+            const letter = document.getElementById('letter');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const heartsContainer = document.getElementById('hearts');
+            
+            let isOpened = false;
+            
+            // Crear corazones decorativos
+            function createHearts() {
+                const heartCount = 12;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 5;
+                    const duration = 10 + Math.random() * 10;
+                    const size = 15 + Math.random() * 20;
+                    
+                    heart.style.left = `${left}%`;
+                    heart.style.fontSize = `${size}px`;
+                    heart.style.animationDelay = `${delay}s`;
+                    heart.style.animationDuration = `${duration}s`;
+                    
+                    heartsContainer.appendChild(heart);
+                }
+            }
+            
+            // Abrir la carta
+            function openCard() {
+                if (isOpened) return;
+                
+                isOpened = true;
+                
+                // Animar el sello
+                seal.style.transform = 'translateX(-50%) scale(1.2)';
+                seal.style.opacity = '0';
+                
+                // Animar la solapa
+                flap.classList.add('opened');
+                
+                // Animar el sobre
+                setTimeout(() => {
+                    envelope.classList.add('flipped');
+                }, 300);
+                
+                // Mostrar la carta
+                setTimeout(() => {
+                    letter.classList.add('revealed');
+                    
+                    // Ocultar instrucciones
+                    document.querySelector('.instruction').style.opacity = '0';
+                }, 800);
+                
+                // Remover event listeners después de abrir
+                envelope.removeEventListener('click', openCard);
+                seal.removeEventListener('click', openCard);
+            }
+            
+            // Event listeners
+            envelope.addEventListener('click', openCard);
+            seal.addEventListener('click', openCard);
+            
+            // Confirmar asistencia
+            confirmBtn.addEventListener('click', function() {
+                // Cambiar estilo del botón
+                this.innerHTML = '<i class="fas fa-check-circle"></i> ¡Confirmado!';
+                this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                this.disabled = true;
+                
+                // Mostrar mensaje de confirmación
+                setTimeout(() => {
+                    letter.innerHTML = `
+                        <div style="text-align: center; padding: 20px 0;">
+                            <div style="font-size: 4rem; color: #10b981; margin-bottom: 20px;">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            
+                            <h2 class="letter-title" style="color: #10b981;">
+                                ¡Perfecto!
+                            </h2>
+                            
+                            <p class="letter-message" style="font-size: 1.2rem; margin-bottom: 30px;">
+                                Me alegra mucho que puedas venir.
+                            </p>
+                            
+                            <div style="background: #f0fdf4; padding: 25px; border-radius: 10px; margin: 25px 0; border-left: 4px solid #10b981;">
+                                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                    <i class="fas fa-calendar-alt" style="color: #10b981; font-size: 1.5rem; margin-right: 15px;"></i>
+                                    <div style="text-align: left;">
+                                        <div style="color: #666; font-size: 0.9rem;">Te espero el</div>
+                                        <div style="color: #333; font-size: 1.2rem; font-weight: 600;">27 de noviembre</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center;">
+                                    <i class="fas fa-map-marker-alt" style="color: #10b981; font-size: 1.5rem; margin-right: 15px;"></i>
+                                    <div style="text-align: left;">
+                                        <div style="color: #666; font-size: 0.9rem;">En</div>
+                                        <div style="color: #333; font-size: 1.2rem; font-weight: 600;">Alegría - 11:00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="letter-message" style="color: #666; font-style: italic;">
+                                Será una noche inolvidable. ¡Nos vemos pronto!
+                            </p>
+                        </div>
+                    `;
+                    
+                    // Crear más corazones
+                    for (let i = 0; i < 8; i++) {
+                        setTimeout(() => {
+                            const heart = document.createElement('div');
+                            heart.className = 'heart';
+                            heart.innerHTML = '<i class="fas fa-heart"></i>';
+                            
+                            const left = Math.random() * 100;
+                            const delay = 0;
+                            const duration = 4;
+                            const size = 20;
+                            
+                            heart.style.left = `${left}%`;
+                            heart.style.fontSize = `${size}px`;
+                            heart.style.animationDelay = `${delay}s`;
+                            heart.style.animationDuration = `${duration}s`;
+                            heart.style.color = '#d946ef';
+                            heart.style.opacity = '0.5';
+                            
+                            heartsContainer.appendChild(heart);
+                            
+                            // Remover después de la animación
+                            setTimeout(() => {
+                                heart.remove();
+                            }, duration * 1000);
+                        }, i * 300);
+                    }
+                }, 500);
+            });
+            
+            // Inicializar corazones
+            createHearts();
+        });
+    </script>
+</body>
+</html>
